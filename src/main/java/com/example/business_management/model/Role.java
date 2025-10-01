@@ -12,10 +12,10 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class Role {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
-    @OneToMany(mappedBy = "user")
     @Column(name="user_role")
     private String role;
 }

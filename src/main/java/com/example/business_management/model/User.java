@@ -12,6 +12,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
 
@@ -28,6 +29,6 @@ public class User {
     private String password;
 
     @ManyToOne
-    @Column(name="user_role")
+    @JoinColumn(name="role_id")
     private Role role;
 }
