@@ -13,12 +13,16 @@ import java.math.BigDecimal;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="id", nullable = false)
     private Long id;
 
-    @Column(name="product_name")
+    @Column(name="product_name", nullable = false)
     private String name;
 
-    @Column(name="product_price")
+    @Column(name="product_price", nullable = false)
     private BigDecimal price;
+
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
 }
